@@ -1,3 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 .idea/workspace.xml
+EliteScheduleApp/www/lib
+bower_components
