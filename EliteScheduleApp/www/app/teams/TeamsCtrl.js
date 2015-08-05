@@ -4,9 +4,13 @@
 angular.module('eliteApp').controller('TeamsCtrl', ['$scope', 'eliteApi', function($scope, eliteApi){
     var vm = this;
 
-    eliteApi.getLeagueData().then(function(data){
-        vm.teams = data.teams;
-    });
+    vm.loadList = function(forceRefresh){
+        eliteApi.getLeagueData(forceRefresh).then(function(data){
+            vm.teams = data.teams;
+        }).finally(function(){
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+    };
 
-    console.log(vm.teams);
+    vm.loadList(false);
 }]);

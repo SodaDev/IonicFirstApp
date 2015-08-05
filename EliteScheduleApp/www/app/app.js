@@ -1,7 +1,7 @@
 /**
  * Created by soda on 04/08/15.
  */
-var App = angular.module('eliteApp', ['ionic']);
+var App = angular.module('eliteApp', ['ionic', 'angular-cache']);
 
 App.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -27,7 +27,7 @@ App.run(function ($ionicPlatform) {
         .state('home.leagues', {
             url: "/leagues",
             views: {
-                "tab-leagues":{
+                "tab-leagues": {
                     templateUrl: "app/home/leagues.html"
                 }
             }
@@ -97,4 +97,6 @@ App.run(function ($ionicPlatform) {
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/teams');
+}).config(function(CacheFactoryProvider){
+    //angular.extend(CacheFactoryProvider.defaults, { maxAge: 15*60*1000 });
 });

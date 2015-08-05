@@ -2,8 +2,8 @@
  * Created by soda on 04/08/15.
  */
 angular.module('eliteApp')
-    .controller('teamDetailCtrl', ['$scope', '$stateParams', 'eliteApi', '$ionicPopup',
-                            function($scope, $stateParams, eliteApi, $ionicPopup){
+    .controller('teamDetailCtrl', ['$scope', '$stateParams', 'eliteApi', '$ionicPopup', 'myTeamsService',
+                            function($scope, $stateParams, eliteApi, $ionicPopup, myTeamsService){
         var vm = this;
 
         vm.teamId = Number($stateParams.id);
@@ -21,7 +21,6 @@ angular.module('eliteApp')
                 .map(function(item){
                     var isTeam1 = item.team1Id === vm.teamId;
                     var opponentName = isTeam1 ? item.team2 : item.team1;
-                    console.log(item);
                     var scoreDisplay = getScoreDisplay(isTeam1, item.team1Score, item.team2Score);
 
                     return {
@@ -41,20 +40,22 @@ angular.module('eliteApp')
                 .find({'teamId': vm.teamId})
                 .value();
 
-            vm.following = false;
+            vm.following = myTeamsService.isFollowingTeam(team.id);
             vm.toggleFollow = function(){
                 if(vm.following){
                     var confirmPopup = $ionicPopup.confirm({
                         title: 'Unfollow?',
-                        template: 'Are you sure you want to unfollow' + vm.teamName + '?'
+                        template: 'Are you sure you want to unfollow ' + vm.teamName + '?'
                     });
                     confirmPopup.then(function(res){
                         if(res){
                             vm.following = !vm.following;
+                            myTeamsService.unFollowTeam(team);
                         }
                     })
                 } else {
                     vm.following = !vm.following;
+                    myTeamsService.followTeam(team);
                 }
             };
         });
