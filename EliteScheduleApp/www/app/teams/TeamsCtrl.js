@@ -4,7 +4,9 @@
 angular.module('eliteApp').controller('TeamsCtrl', ['$scope', 'eliteApi', function($scope, eliteApi){
     var vm = this;
 
-    vm.teams = eliteApi.getLeagueData().teams;
+    eliteApi.getLeagueData().then(function(data){
+        vm.teams = data.teams;
+    });
 
     console.log(vm.teams);
 }]);
