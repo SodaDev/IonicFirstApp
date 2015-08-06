@@ -1,7 +1,7 @@
 /**
  * Created by soda on 04/08/15.
  */
-var App = angular.module('eliteApp', ['ionic', 'angular-cache']);
+var App = angular.module('eliteApp', ['ionic', 'angular-cache', 'uiGmapgoogle-maps']);
 
 App.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -85,6 +85,14 @@ App.run(function ($ionicPlatform) {
                 }
             }
         })
+        .state('app.location-map', {
+            url: "/location-map/:id",
+            views: {
+                'mainContent': {
+                    templateUrl: "app/locations/location-map.html"
+                }
+            }
+        })
         .state('app.rules', {
             url: "/rules",
             views: {
@@ -96,7 +104,9 @@ App.run(function ($ionicPlatform) {
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/teams');
+    $urlRouterProvider.otherwise('/home/leagues');
 }).config(function(CacheFactoryProvider){
     //angular.extend(CacheFactoryProvider.defaults, { maxAge: 15*60*1000 });
+}).config(function($ionicConfigProvider) {
+    $ionicConfigProvider.tabs.position('bottom');
 });

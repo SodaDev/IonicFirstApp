@@ -1,1 +1,49 @@
 /* Empty. Add your own CSS if you like */
+map {
+    display:block;
+    width: 100%;
+    height: 100%;
+}
+
+.scroll {
+    height: 100%;
+}
+
+.angular-google-map-container {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.angular-google-map {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marker-labels {
+    color: black;
+    background-color: white;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    white-space: nowrap;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+}
+
+.allow-bullets ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.platform-android .bar-subheader.has-tabs-top{
+    top:93px !important;
+}
+
+.platform-android .has-subheader.has-tabs-top{
+    top:137px;
+}
