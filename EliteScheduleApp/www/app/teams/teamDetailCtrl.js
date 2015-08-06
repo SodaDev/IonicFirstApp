@@ -14,6 +14,7 @@ angular.module('eliteApp')
                 .flatten()
                 .find({"id": vm.teamId})
                 .value();
+            team.leagueId = eliteApi.getLeagueId();
 
             vm.teamName = team.name;
             vm.games = _.chain(data.games)

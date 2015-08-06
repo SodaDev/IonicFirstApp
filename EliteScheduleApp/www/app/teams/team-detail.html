@@ -1,34 +1,36 @@
 <ion-view title="{{vm.teamName}}" ng-controller="teamDetailCtrl as vm">
     <ion-content class="has-header">
-
         <div class="card">
+            <div class="item item-energized text-center">
+                <span ng-bind="vm.teamName"></span>
+            </div>
             <div class="item item-button-right">
                 <h2>Record: {{vm.teamStanding.wins}} - {{vm.teamStanding.losses}}</h2>
 
-                <button class="button button-positive icon-left" ng-click="vm.toggleFollow()"
-                        ng-class="{'ion-checkmark-round' : vm.following,
-                                   'ion-plus-round button-outline': !vm.following}">
-                    {{vm.following ? "Following" : "Not following"}}
-                </button>
+                <!--<button class="button button-positive icon-left" ng-click="vm.toggleFollow()"-->
+                        <!--ng-class="{'ion-checkmark-round' : vm.following,-->
+                                   <!--'ion-plus-round button-outline': !vm.following}">-->
+                    <!--{{vm.following ? "Following" : "Not following"}}-->
+                <!--</button>-->
             </div>
 
             <div class="item item-checkbox">
                 <h2>{{vm.following ? "Following" : "Not following"}}</h2>
                 <label class="checkbox">
-                    <input type="checkbox" ng-model="vm.following">
+                    <input type="checkbox" ng-checked="vm.following" ng-click="vm.toggleFollow()">
                 </label>
             </div>
 
-            <div class="item item-toggle">
-                <h2>{{vm.following ? "Following" : "Not following"}}</h2>
-                <label class="toggle toggle-energized">
-                    <input type="checkbox" ng-model="vm.following">
+            <!--<div class="item item-toggle">-->
+                <!--<h2>{{vm.following ? "Following" : "Not following"}}</h2>-->
+                <!--<label class="toggle toggle-energized">-->
+                    <!--<input type="checkbox" ng-model="vm.following" ng-click="vm.toggleFollow()">-->
 
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </div>
+                    <!--<div class="track">-->
+                        <!--<div class="handle"></div>-->
+                    <!--</div>-->
+                <!--</label>-->
+            <!--</div>-->
         </div>
 
         <div class="list">

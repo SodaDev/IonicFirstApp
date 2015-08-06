@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.elitescheduleapp375280" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>EliteScheduleApp</name>
+<widget id="pl.codecat.eliteschedule" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Elite Schedule</name>
   <allow-navigation href="*"/>
   <description>
-        An Ionic Framework and Cordova project.
+        Example Ionic project
     </description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+      Marcin Sodkiewicz
     </author>
   <content src="index.html"/>
   <access origin="*"/>

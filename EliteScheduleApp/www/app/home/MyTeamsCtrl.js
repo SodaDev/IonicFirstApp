@@ -8,6 +8,7 @@ angular.module('eliteApp').controller('MyTeamsCtrl', ['$state', 'myTeamsService'
     vm.myTeams = myTeamsService.getFollowedTeams();
 
     vm.goToTeam = function(team){
+        console.log(team);
         eliteApi.setLeagueId(team.leagueId);
         $state.go('app.team-detail', { id: team.id });
     }
