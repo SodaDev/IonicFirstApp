@@ -1,7 +1,7 @@
 /**
  * Created by soda on 04/08/15.
  */
-var App = angular.module('eliteApp', ['ionic', 'angular-cache', 'uiGmapgoogle-maps']);
+var App = angular.module('eliteApp', ['ngCordova', 'ionic', 'angular-cache', 'uiGmapgoogle-maps']);
 
 App.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -98,6 +98,14 @@ App.run(function ($ionicPlatform) {
             views: {
                 'mainContent': {
                     templateUrl: "app/rules/rules.html"
+                }
+            }
+        })
+        .state('app.cordova', {
+            url: "/cordova",
+            views: {
+                'mainContent': {
+                    templateUrl: "app/cordova/dialogs.html"
                 }
             }
         })

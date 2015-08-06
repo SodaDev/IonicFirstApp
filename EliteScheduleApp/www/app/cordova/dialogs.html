@@ -1,0 +1,65 @@
+<ion-view title="Dialogs">
+    <ion-content class="has-header padding">
+
+        <div class="card" ng-controller="DialogsCtrl as vm">
+            <div class="item text-center item-energized">Dialogs</div>
+            <div class="item">
+                <button class="button button-full button-balanced" ng-click="vm.alert()">Alert</button>
+                <button class="button button-full button-balanced" ng-click="vm.confirm()">Confirm</button>
+                <button class="button button-full button-balanced" ng-click="vm.prompt()">Prompt</button>
+                <button class="button button-full button-balanced" ng-click="vm.beep()">Beep</button>
+            </div>
+        </div>
+
+        <div class="card" ng-controller="VibrationCtrl as vm">
+            <div class="item text-center item-energized">Vibration</div>
+            <div class="item">
+                <button class="button button-full button-balanced" ng-click="vm.vibrate()">Vibrate</button>
+            </div>
+        </div>
+
+        <div class="card" ng-controller="NetworkCtrl as vm">
+            <div class="item text-center item-energized">Network</div>
+            <div class="item">
+                <ion-toggle ng-model="vm.isOnline" ng-disabled="true" toggle-class="toggle-energized">{{ vm.isOnline ? 'Online' : 'Offline'}}</ion-toggle>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <div class="col col-center">Connection type</div>
+                    <div class="col-20 col-center text-right">
+                        <h2 ng-bind="vm.type"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" ng-controller="DeviceCtrl as vm">
+            <div class="item item-energized">Device Info</div>
+            <div class="item" ng-repeat="info in vm.infos">
+                <div class="row">
+                    <div class="col col-center">{{info.type}}</div>
+                    <div class="col-20 col-center text-right">
+                        <h2 ng-bind="info.value"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" ng-controller="CameraCtrl as vm">
+            <div class="item item-energized">Camera</div>
+            <div class="item item-body item-image">
+                <img ng-src="{{vm.photo}}">
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a href="" class="tab-item" ng-click="vm.takePicture()">
+                    <i class="icon ion-camera"></i>
+                    Take Picture
+                </a>
+                <a href="" class="tab-item" ng-click="vm.selectPicture()">
+                    <i class="icon ion-record"></i>
+                    Select Picture
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
